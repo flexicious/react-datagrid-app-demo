@@ -15,10 +15,7 @@ import {fetchData} from '../modules/actions';
 Constants.IMAGE_PATH = "http://reactdatagrid.com/images";
 StyleDefaults.defaults.imagesRoot = "http://reactdatagrid.com/images";
 
-
-import BarChartDemo from '../../Graphs/components/BarChartDemo';
-import DonutChartDemo from '../../Graphs/components/DonutChartDemo';
-
+import MaterialChartsPopup from  '../../Graphs/components/MaterialChartsPopup';
 
 
 export class HomeView extends React.Component {
@@ -38,8 +35,6 @@ export class HomeView extends React.Component {
       { year: 2015, google: 25.5, intel: 10.5, facebook: 112.5 },
       { year: 2014, google: 30, intel: 48, facebook: 42 },
       { year: 2013, google: 65, intel: 18, facebook: 16 },
-      { year: 2012, google: 75, intel: 16, facebook: 58 },
-      { year: 2011, google: 5, intel: 6, facebook: 8 },
     ];
 
     const grid = this.refs.tabItems.refs.grid;
@@ -204,7 +199,8 @@ class ChipsWrapper extends React.Component {
 class TabItems extends React.Component{
   constructor(props){
     super(props);
-    this.state = {items:[],value : 'home', graphData:[]};
+    // this.state = {items:[],value : 'home', graphData:[]};
+    this.state = {items:[],value : 'home'};
   }
 
   cellBackgroundColorFunction(cell) {
@@ -214,18 +210,24 @@ class TabItems extends React.Component{
     return null;
   }
 
+  openChartDialog = (grid, chartData) => {
+    var dialog = new MaterialChartsPopup();
+    dialog.setGrid(grid);
+    dialog.setGraphData(chartData);
+    dialog.showDialog();
+  }
+
 
   onContextMenuSelectedRows = (e) => {
     var grid = document.querySelector('.flexiciousGrid').component;
     var selectedItems = grid.getSelectedItems();
-    this.setState({graphData: selectedItems});
-
+    this.openChartDialog(grid, selectedItems);
   }
 
   onContextMenuAllRows = (e) => {
     var grid = document.querySelector('.flexiciousGrid').component;
     var dataProvider = grid.getDataProvider();
-    this.setState({graphData: dataProvider});
+    this.openChartDialog(grid, dataProvider);
   }
 
   onMenuItemsChange(e,item){
@@ -293,12 +295,6 @@ class TabItems extends React.Component{
             </div>
 
             <MenuItems showDefaultItems="true" id="rightClickMenu" ref="menu" onMenuItemChange= {this.onMenuItemsChange.bind(this)}/>
-
-            <div style={{marginTop:'50px',display:this.state.graphData.length > 0 ?'block':'none'}}>
-              <h2>Charts</h2>
-              <DonutChartDemo items={this.state.graphData}/>
-              <BarChartDemo items={this.state.graphData} />
-            </div>
           </Tab>
           {tabs}
         </Tabs>

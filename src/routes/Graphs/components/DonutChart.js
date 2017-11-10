@@ -49,7 +49,7 @@ class DonutChart extends React.Component {
                         '<div style="width:10px;height:10px;background:' + this.point.color + ';display:block"></div>' +
                         '&nbsp;&nbsp<span style="line-height: 110%"><b>' + this.point.name + '</b></span></label>'
                 },
-                distance: 34,
+                distance: 20,
                 useHTML: true
             }
         }
@@ -79,7 +79,8 @@ class DonutChart extends React.Component {
             return {
                 chart: {
                     type: 'pie',
-                    width: null
+                    width: null,
+                    height: null
                 },
                 title: null,
                 yAxis: {
@@ -130,8 +131,15 @@ class DonutChart extends React.Component {
     }
 
     componentWillReceiveProps(props) {
+        const { data, thicknesses } = props;
         // this.chart.highcharts().series[0].setData(props.data);
-        this.setState({data: props.data, thicknesses: props.thicknesses});
+        this.setState({data: data, thicknesses: thicknesses});
+
+        if(data.length > 0) {
+            this.chart.chartRef.style.display = '';
+        } else {
+            this.chart.chartRef.style.display = 'none';
+        }
     }
 
     render() {

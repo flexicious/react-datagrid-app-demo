@@ -69,7 +69,7 @@ class BarChart extends React.Component {
                     // x: 40,
                     y: 50,
                     floating: false,
-                    borderWidth: 2,
+                    borderWidth: 0,
                     backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
                     shadow: false,
                     // padding: 100
