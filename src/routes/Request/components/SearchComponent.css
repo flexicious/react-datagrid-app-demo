@@ -1,0 +1,9 @@
+.searchComponentView{
+  width: 300px;
+  margin: auto;
+}
+
+.searchComponentView .title{
+  text-align: left;
+  margin-bottom: 3px;
+}

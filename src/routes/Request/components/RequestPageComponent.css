@@ -1,0 +1,59 @@
+.RequestPage {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.RequestPage .page-menu-container{
+  width: 100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+  margin: 30px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rowC{
+  display: flex;
+  flex-direction:row;
+}
+
+.pageContent{
+  margin: 2px;
+  textAlign: 'center';
+  //display: 'inline-block';
+  padding: 30px;
+  min-height: 600px;
+}
+
+.pageContent .pageView{
+  height:100%;
+}
+
+.page-title{
+  text-align: left;
+}

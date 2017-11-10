@@ -1,0 +1,90 @@
+.route--active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header-div {
+  background: #27293d;
+  width: 100%;
+  height: 90px;
+  color: #f5f5f5;
+  padding: 5px;
+}
+
+.btn-bar-item {
+  background: #e4e2e2;
+  height: 80px;
+  min-width: 160px;
+  margin-right: 2px;
+  border-radius: 0;
+  font-weight: bold;
+  color:#e74c3c;
+}
+/*.btn-bar-item:hover{
+  color:"#ffffff";
+}
+
+/*.btn-bar-item:focus{
+  outline: none !important;
+  background: #e74c3c;
+  text-align: center;
+  color:#fff;
+}*/
+
+.btn-bar-item:hover, .active{
+  outline: none !important;
+  background: #e74c3c;
+  text-align: center;
+  color:#fff;
+}
+
+.btn-bar-item:hover:after, .btn-bar-item.active:after{
+  content: "";
+  position: relative;
+  top: 63px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 14px solid #e74c3c;
+}
+
+.flexiciousGrid label{
+  color:#333333;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.chip{
+  margin: 4px !important;
+  min-width:100px;
+  border-radius:6px !important;
+  background-color:#27293d !important;
+  text-align: center !important;
+  font-weight: bold;
+
+}
+.chip.active{
+  background-color:#e74c3c !important;
+}
+
+.chip span{
+  color: #ffffff !important;
+  width:calc(100% - 20px);
+}
+
+.chip svg{
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.icon-menu-item{
+  width: 162px;
+}
+
+.tab-bar{
+  margin-top: 20px;
+
+}

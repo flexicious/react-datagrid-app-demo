@@ -1,0 +1,9 @@
+.selectComponentView{
+  width: 300px;
+  margin: auto;
+}
+
+.selectComponentView .title{
+  text-align: left;
+  margin-bottom: 3px;
+}

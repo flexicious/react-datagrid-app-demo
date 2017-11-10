@@ -1,0 +1,38 @@
+.menu-list{
+    background-color: #efefef !important;
+    margin: 2px;
+    border: 1px solid white !important;
+    padding-right: 20px !important;
+    padding-left: 10px !important;
+    text-align: left !important;
+}
+
+.menu-list:hover{
+    background-color: #d6d6d6 !important;
+}
+
+.menu-list.selected{
+    background-color: #dd543b !important;
+    margin: 0px !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+.pageMenu{
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    float: right;
+    border-top: solid 10px transparent;
+    border-bottom: solid 10px transparent;
+    border-right: solid 10px #dd543b;
+    position: absolute;
+    z-index: 2;
+    left: -20px;
+}
