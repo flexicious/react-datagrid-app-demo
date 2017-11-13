@@ -6,7 +6,7 @@
 import React from 'react'
 import { Constants, ToolbarAction, UIUtils, UIComponent, TriStateCheckBox }  from '../../js/library'
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
-import CheckBox from 'material-ui/CheckBox'
+import CheckBox from 'material-ui/Checkbox'
 /**
  * A SaveSettingsPopup that which can be used within the filtering/binding infrastructure.
  * @constructor
@@ -130,7 +130,7 @@ export default class MaterialSaveSettingsPopup extends UIComponent {
                         </td>
                         <td>
                             <div >
-                                <CheckBox className={"cbPERSIST_FOOTER_FILTER_VISIBILITY"} defaultChecked={true} label={Constants.SAVE_SETTINGS_FILTER_AND_FOOTER_VISIBILITY} /> 
+                                <CheckBox className={"cbPERSIST_FOOTER_FILTER_VISIBILITY"} defaultChecked={true} label={Constants.SAVE_SETTINGS_FILTER_AND_FOOTER_VISIBILITY} />
                                 <CheckBox className={"cbPERSIST_PAGE_SIZE"} defaultChecked={true} label={Constants.SAVE_SETTINGS_RECORDS_PER_PAGE} />
                                 <CheckBox className={"cbPERSIST_PRINT_SETTINGS"} defaultChecked={true} label={Constants.SAVE_SETTINGS_PRINT_SETTINGS} />
                             </div>

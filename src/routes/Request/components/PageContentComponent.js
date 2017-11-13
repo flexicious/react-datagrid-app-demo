@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SelectComponent from './selectComponent'
+import SelectComponent from './SelectComponent'
 import {GridList, GridTile} from 'material-ui/GridList'
 import SearchComponent from './SearchComponent'
 
