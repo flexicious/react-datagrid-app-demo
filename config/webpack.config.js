@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
 
-const __DEV__ = true
+const __DEV__ = false
 const __PROD__ = project.globals.__PROD__
 const __TEST__ = project.globals.__TEST__
 
