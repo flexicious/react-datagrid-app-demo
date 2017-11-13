@@ -5,10 +5,12 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin-top: 5px;
 }
 
 .RequestPage .page-menu-container{
   width: 100%;
+  justify-content: center;
 }
 
 .App-logo {
@@ -47,7 +49,7 @@
   textAlign: 'center';
   //display: 'inline-block';
   padding: 30px;
-  min-height: 600px;
+  min-height: 350px;
 }
 
 .pageContent .pageView{

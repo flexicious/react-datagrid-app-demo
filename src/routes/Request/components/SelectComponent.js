@@ -1,11 +1,13 @@
 import './SelectComponent.css'
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import {TextField, IconButton} from 'material-ui'
 import DropDownIcon from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import {grey800} from 'material-ui/styles/colors';
 
-const colors = [
+const items = [
   'Application 1',
   'Application 2',
   'Application 3',
@@ -22,8 +24,14 @@ const colors = [
  * This value is reset with the `onNewRequest` callback.
  */
 export default class SearchComponent extends Component {
+   constructor (props){
+     super(props);
+     this.items = props.items?props.items:items;
+   }
+
   state = {
     searchText: '',
+    value:0
   };
 
   handleUpdateInput = (searchText) => {
@@ -38,17 +46,33 @@ export default class SearchComponent extends Component {
     });
   };
 
+  handleChange = (event, index, value) => this.setState({value});
+
   render() {
     return (
       <div className="selectComponentView">
         <h5 className="title">{this.props.label}</h5>
-        <div>
-          <AutoComplete
+        <SelectField
+            value={this.state.value}
+            onChange={this.handleChange}
+            style={{
+              border: 'solid 1px #E0E0E0', borderRadius: 2, paddingLeft: 5,height:40,display:'block'
+            }}
+            underlineStyle={{display: 'none'}}
+          >
+            {
+              this.items.map((item, index)=> (
+                <MenuItem value={index} primaryText={item} />
+              ))
+            }
+          </SelectField>
+
+
+          {/*<AutoComplete
             hintText="Select your application"
             searchText={this.state.searchText}
             onUpdateInput={this.handleUpdateInput}
-            /*onNewRequest={this.handleNewRequest}*/
-            dataSource={colors}
+            dataSource={this.items}
             filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
             openOnFocus={true}
             style={{
@@ -65,8 +89,7 @@ export default class SearchComponent extends Component {
             <DropDownIcon
               color={grey800}
             />
-          </IconButton>
-        </div>
+          </IconButton>*/}
       </div>
     );
   }

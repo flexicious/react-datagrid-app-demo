@@ -16,7 +16,7 @@ Constants.IMAGE_PATH = "http://reactdatagrid.com/images";
 StyleDefaults.defaults.imagesRoot = "http://reactdatagrid.com/images";
 
 import MaterialChartsPopup from  '../../Graphs/components/MaterialChartsPopup';
-
+import RequestPopup from '../../Request/components/RequestPopup'
 
 export class HomeView extends React.Component {
   constructor() {
@@ -265,6 +265,16 @@ class TabItems extends React.Component{
     });
   }
 
+  onDoubleClick(e) {
+    var grid = document.querySelector('.flexiciousGrid').component;
+    var selectedItems = grid.getDataProvider();
+
+    var dialog = new RequestPopup();
+    dialog.setGrid(grid);
+    dialog.setData(selectedItems);
+    dialog.showDialog();
+  }
+
   render(){
 
     var tabs = this.state.items.map((item) => {
@@ -282,8 +292,7 @@ class TabItems extends React.Component{
       <div>
         <Tabs inkBarStyle={{height:0}} className="tab-bar" tabItemContainerStyle={{height:0}} value={this.state.value}>
           <Tab label="Item One" value="home" >
-
-            <div id="grid-right-click-context" onContextMenu={this.contextMenu.bind(this)}>
+            <div id="grid-right-click-context" onContextMenu={this.contextMenu.bind(this)} onDoubleClick={this.onDoubleClick.bind(this)}>
               <ReactDataGrid rowHeight='90' borderThickness='0' horizontalGridLines="true" ref="grid" selectionMode="multipleRows"  enableFilters enableStickyControlKeySelection={false} enableEnterLikeTab destroyEditorOnMouseDownOnGrid={false}
                              itemClick="onItemClick" enableKeyboardNavigation popupFactorySettingsPopup={new ClassFactory(CustomSettingsPopup)} width="100%" height="400"
                              cellBackgroundColorFunction={this.cellBackgroundColorFunction} enableActiveCellHighlight horizontalScrollPolicy="auto">

@@ -10,14 +10,15 @@ class PageContentComponent extends Component {
     this.state = {
       pageTitle: props.pageTitle ? props.pageTitle : 'Tittle Here '
     }
-    this.selectItems = [{name: 'Application'}, {name: 'Manager'}, {name: 'is Manager'}, {name: 'project1'}, {name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'},{name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'},{name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'},{name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'}]
+    this.defaultItems = [{name: 'Application'}, {name: 'Manager'}, {name: 'is Manager'}, {name: 'project1'}, {name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'}, {name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'}, {name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'}, {name: 'project 2'}, {name: 'project 3'}, {name: 'Application '}, {name: 'is Manager'}]
+    this.selectItems = this.props.items ? this.props.items : this.defaultItems;
   }
 
 
   render() {
 
     var gridList = {
-      height: 500,
+      maxHeight: 358,
       overflowY: 'auto'
     }
 
@@ -33,9 +34,9 @@ class PageContentComponent extends Component {
         >
           {
             this.selectItems.map((item, index) => (
-              <GridTile key={item.name + index}>
-                {!item.name.toLowerCase().includes('manager') && <SelectComponent label={item.name}/>}
-                {item.name.toLowerCase().includes('manager') && <SearchComponent label={item.name}/>}
+                <GridTile key={item.name + index}>
+                  {!item.name.toLowerCase().includes('manager') && <SelectComponent label={item.name} items={item.options}/>}
+                  {item.name.toLowerCase().includes('manager') && <SearchComponent key={"SearchComponent"+item.name+index} label={item.name}/>}
                 </GridTile>
               )
             )

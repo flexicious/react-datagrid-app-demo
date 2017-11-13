@@ -29,14 +29,11 @@ export default class PageMenu extends Component {
     let list = this.props.menuList.map(function (menuItem, index) {
       index = index+1;
       return (
-        <div>
           <ListItem key={menuItem.name + index} ref={'menuItem' + index}
                     onClick={this.handleRequestChange.bind(this, index)} primaryText={menuItem.name}
                     className={(this.state.selectedIndex === index ? 'selected ' : '') + 'menu-list'}>
             <span className='triangle' style={{visibility: this.state.selectedIndex === index ? 'visible' : 'hidden'}}/>
           </ListItem>
-
-        </div>
       )
     }.bind(this))
 
